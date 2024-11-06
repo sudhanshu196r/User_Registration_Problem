@@ -17,8 +17,13 @@ def test_check_firstname():
     assert user_registration.check_firstname('Sudhanshu')
     assert not user_registration.check_firstname('sam')
 
+def test_check_lastname():
+    assert user_registration.check_lastname('Kumar')
+    assert not user_registration.check_lastname('kumar')
+
 def main():
     test_check_firstname()
+    test_check_lastname()
 
 if __name__=="__main__":
     main()
