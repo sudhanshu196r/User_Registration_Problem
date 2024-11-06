@@ -54,6 +54,20 @@ def check_email(email):
     return bool(re.match(pattern, email))
 
 
+def check_mobileno(mob_no):
+    """
+    Description:
+        This function checks if user entered valid mobile number
+    Parameter:
+        mob_no: the mobile number to be checked
+    Returns:
+        None
+    """
+
+    pattern = r'^(\d{1,3})\s\d{10}$'
+    return bool(re.match(pattern,mob_no))
+
+
 
 def main():
     try:
@@ -88,6 +102,18 @@ def main():
                 log.error("Error! Invalid email")
     except Exception as e:
         log.exception(f"Raised Exception: {e}")
+
+    try:
+        while True:
+            mob_no = input("Enter mobile number: ")
+            result = check_mobileno(mob_no)
+            if result:
+                break
+            else:
+                log.error("Error! Invalid mobile number")
+    except Exception as e:
+        log.exception(f"Raised Exception: {e}")
+    
 
 
 if __name__=="__main__":
