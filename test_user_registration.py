@@ -21,9 +21,15 @@ def test_check_lastname():
     assert user_registration.check_lastname('Kumar')
     assert not user_registration.check_lastname('kumar')
 
+def test_check_email():
+    assert user_registration.check_email('sudha@bl.co')
+    assert not user_registration.check_lastname('abc@gmail.com.ind')
+
+
 def main():
     test_check_firstname()
     test_check_lastname()
+    test_check_email()
 
 if __name__=="__main__":
     main()
