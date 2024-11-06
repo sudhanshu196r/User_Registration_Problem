@@ -40,6 +40,20 @@ def check_lastname(l_name):
     return bool(re.match(pattern, l_name))
 
 
+def check_email(email):
+    """
+    Description:
+        This function checks if user entered valid email
+    Parameter:
+        email: the email to be checked
+    Returns:
+        None
+    """
+
+    pattern = r'^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)?@([a-zA-Z0-9]+\.)[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?'
+    return bool(re.match(pattern, email))
+
+
 
 def main():
     try:
@@ -63,6 +77,18 @@ def main():
                 log.error("Error! Invalid last name")
     except Exception as e:
         log.exception(f"Raised Exception: {e}")
+
+    try:
+        while True:
+            email = input("Enter email: ")
+            result = check_email(email)
+            if result:
+                break
+            else:
+                log.error("Error! Invalid email")
+    except Exception as e:
+        log.exception(f"Raised Exception: {e}")
+
 
 if __name__=="__main__":
     main()
