@@ -3,14 +3,14 @@
     @Date: 04-11-2024
     @Last Modified by: Sudhanshu Kumar
     @Last Modified time: 04-11-2024
-    @Title : Enter valid first name
+    @Title : User Registration problem
 
 '''
 
 import re
 import logger
 
-log = logger.logger_init('first_name')
+log = logger.logger_init('user_registration')
 
 def check_firstname(f_name):
     """
@@ -26,6 +26,21 @@ def check_firstname(f_name):
     return bool(re.match(pattern, f_name))
 
 
+def check_lastname(l_name):
+    """
+    Description:
+        This function checks if user entered valid last name
+    Parameter:
+        l_name: the name to be checked
+    Returns:
+        None
+    """
+
+    pattern = r'^[A-Z][a-z]{2,}$'
+    return bool(re.match(pattern, l_name))
+
+
+
 def main():
     try:
         while True:
@@ -34,7 +49,18 @@ def main():
             if result:
                 break
             else:
-                log.info("Error! Invalid First name")
+                log.error("Error! Invalid First name")
+    except Exception as e:
+        log.exception(f"Raised Exception: {e}")
+
+    try:
+        while True:
+            l_name = input("Enter last name: ")
+            result = check_lastname(l_name)
+            if result:
+                break
+            else:
+                log.error("Error! Invalid last name")
     except Exception as e:
         log.exception(f"Raised Exception: {e}")
 
