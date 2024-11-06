@@ -25,11 +25,16 @@ def test_check_email():
     assert user_registration.check_email('sudha@bl.co')
     assert not user_registration.check_lastname('abc@gmail.com.ind')
 
+def test_check_mobileno():
+    assert user_registration.check_mobileno('91 3838746267')
+    assert not user_registration.check_mobileno('392 83992')
+
 
 def main():
     test_check_firstname()
     test_check_lastname()
     test_check_email()
+    test_check_mobileno()
 
 if __name__=="__main__":
     main()
