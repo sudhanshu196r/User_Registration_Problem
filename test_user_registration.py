@@ -29,6 +29,9 @@ def test_check_mobileno():
     assert user_registration.check_mobileno('91 3838746267')
     assert not user_registration.check_mobileno('392 83992')
 
+def test_check_password():
+    assert user_registration.check_password('Abcd@1sd')
+    assert not user_registration.check_mobileno('jdjdj')
 
 def main():
     test_check_firstname()
