@@ -89,6 +89,10 @@ def check_password(passw):
     if not re.search(r'[0-9]', passw):
         return False
 
+    #UC8
+    if not re.search(r'[!@#$%^&*(),.?":{}|<>]', passw):
+        return False
+        
     return ans
     
 def main():
