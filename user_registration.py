@@ -19,7 +19,7 @@ def check_firstname(f_name):
     Parameter:
         f_name: the name to be checked
     Returns:
-        None
+        True or False
     """
 
     pattern = r'^[A-Z][a-z]{2,}$'
@@ -33,7 +33,7 @@ def check_lastname(l_name):
     Parameter:
         l_name: the name to be checked
     Returns:
-        None
+        True or False
     """
 
     pattern = r'^[A-Z][a-z]{2,}$'
@@ -47,7 +47,7 @@ def check_email(email):
     Parameter:
         email: the email to be checked
     Returns:
-        None
+        True or False
     """
 
     pattern = r'^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)?@([a-zA-Z0-9]+\.)[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?'
@@ -61,14 +61,27 @@ def check_mobileno(mob_no):
     Parameter:
         mob_no: the mobile number to be checked
     Returns:
-        None
+        True or False
     """
 
     pattern = r'^(\d{1,3})\s\d{10}$'
     return bool(re.match(pattern,mob_no))
 
+def check_password(passw):
+    """
+    Description:
+        This function checks if user entered valid password
+    Parameter:
+        passw: the pass to be checked
+    Returns:
+        True or False
+    """
 
-
+    ans = True
+    if len(passw)<8:
+        ans=False
+    return ans
+    
 def main():
     try:
         while True:
@@ -113,6 +126,18 @@ def main():
                 log.error("Error! Invalid mobile number")
     except Exception as e:
         log.exception(f"Raised Exception: {e}")
+
+    try:
+        while True:
+            passw = input("Enter password: ")
+            result = check_password(passw)
+            if result:
+                break
+            else:
+                log.error("Error! Invalid password")
+    except Exception as e:
+        log.exception(f"Raised Exception: {e}")
+
     
 
 
