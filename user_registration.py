@@ -79,7 +79,11 @@ def check_password(passw):
 
     ans = True
     if len(passw)<8:
-        ans=False
+        return False
+
+    if not re.search(r'[A-Z]', passw):
+        return False
+
     return ans
     
 def main():
