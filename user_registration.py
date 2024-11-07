@@ -76,12 +76,17 @@ def check_password(passw):
     Returns:
         True or False
     """
-
+    #UC5
     ans = True
     if len(passw)<8:
         return False
 
+    #UC6
     if not re.search(r'[A-Z]', passw):
+        return False
+
+    #UC7
+    if not re.search(r'[0-9]', passw):
         return False
 
     return ans
