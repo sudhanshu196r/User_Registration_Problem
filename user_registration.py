@@ -50,7 +50,7 @@ def check_email(email):
         True or False
     """
 
-    pattern = r'^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)?@([a-zA-Z0-9]+\.)[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?'
+    pattern = r'^[a-zA-Z0-9!#$%&\'*+/=?^_`{|}~-]+(\.[a-zA-Z0-9]+)?@([a-zA-Z0-9]+\.)[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?'
     return bool(re.match(pattern, email))
 
 
